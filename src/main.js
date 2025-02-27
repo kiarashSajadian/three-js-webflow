@@ -1,3 +1,4 @@
 import "./styles/style.css";
-
-console.log("Hello from Kiarash Sajadian");
+import * as THREE from "three";
+console.log("Hello from Kiarash Sajadiann");
+console.log(THREE);
