@@ -10,6 +10,12 @@ const canvas = document.querySelector("canvas.webgl");
 // Create a new Three.js scene where all 3D objects will be placed
 const scene = new THREE.Scene();
 
+// Sizes
+const sizes = {
+  width: window.innerWidth,
+  heght: window.innerHeight,
+};
+
 // Create a perspective camera with a field of view of 75 degrees,
 // an aspect ratio based on the window size, and near/far clipping planes at 0.1 and 1000 units
 const camera = new THREE.PerspectiveCamera(
