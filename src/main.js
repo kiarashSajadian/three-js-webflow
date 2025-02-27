@@ -47,3 +47,5 @@ function animation() {
   // Render the scene from the perspective of the camera
   renderer.render(scene, camera);
 }
+
+animate();
