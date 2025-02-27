@@ -16,11 +16,18 @@ const sizes = {
   heght: window.innerHeight,
 };
 
+window.addEventListener("resize", () => {
+  sizes.width = window.innerWidth;
+  sizes.height = window.innerHeight;
+  camera.aspect = sizes.width / sizes.height;
+  render
+});
+
 // Create a perspective camera with a field of view of 75 degrees,
 // an aspect ratio based on the window size, and near/far clipping planes at 0.1 and 1000 units
 const camera = new THREE.PerspectiveCamera(
   75,
-  window.innerWidth / window.innerHeight,
+  sizes.width / sizes.height,
   0.1,
   1000
 );
@@ -33,7 +40,7 @@ scene.add(camera);
 
 // Create a cube: Define geometry (shape) and material (appearance)
 const geometry = new THREE.BoxGeometry(1, 1, 1); // A cube with dimensions 1x1x1
-const material = new THREE.MeshBasicMaterial(); // 
+const material = new THREE.MeshBasicMaterial(); //
 const cube = new THREE.Mesh(geometry, material); // Combine geometry and material into a mesh
 scene.add(cube); // Add the cube to the scene
 
@@ -43,7 +50,7 @@ const renderer = new THREE.WebGLRenderer({
 });
 
 // Set the renderer size to match the full window dimensions
-renderer.setSize(window.innerWidth, window.innerHeight);
+ 
 
 // Animation function to continuously rotate and render the cube
 function animation() {
