@@ -27,7 +27,7 @@ scene.add(camera);
 
 // Create a cube: Define geometry (shape) and material (appearance)
 const geometry = new THREE.BoxGeometry(1, 1, 1); // A cube with dimensions 1x1x1
-const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 }); // Green color
+const material = new THREE.MeshBasicMaterial({ color: 0x00ff }); // Green color
 const cube = new THREE.Mesh(geometry, material); // Combine geometry and material into a mesh
 scene.add(cube); // Add the cube to the scene
 
