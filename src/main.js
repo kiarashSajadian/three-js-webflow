@@ -39,5 +39,11 @@ const renderer = new THREE.WebGLRenderer({
 // Set the renderer size to match the full window dimensions
 renderer.setSize(window.innerWidth, window.innerHeight);
 
-// Render the scene from the perspective of the camera
-renderer.render(scene, camera);
+// Animation
+function animation() {
+  requestAnimationFrame(animate);
+  cube.rotation.x += 0.01;
+  cube.rotation.y += 0.01;
+  // Render the scene from the perspective of the camera
+  renderer.render(scene, camera);
+}
