@@ -13,14 +13,20 @@ const scene = new THREE.Scene();
 // Sizes
 const sizes = {
   width: window.innerWidth,
-  heght: window.innerHeight,
+  height: window.innerHeight, // Fixed the typo
 };
 
+// Handle window resize to update sizes and camera properties
 window.addEventListener("resize", () => {
   sizes.width = window.innerWidth;
   sizes.height = window.innerHeight;
+
+  // Update camera aspect ratio and projection matrix
   camera.aspect = sizes.width / sizes.height;
-  render
+  camera.updateProjectionMatrix();
+
+  // Update renderer size
+  renderer.setSize(sizes.width, sizes.height);
 });
 
 // Create a perspective camera with a field of view of 75 degrees,
@@ -40,7 +46,7 @@ scene.add(camera);
 
 // Create a cube: Define geometry (shape) and material (appearance)
 const geometry = new THREE.BoxGeometry(1, 1, 1); // A cube with dimensions 1x1x1
-const material = new THREE.MeshBasicMaterial(); //
+const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 }); // Added a green color
 const cube = new THREE.Mesh(geometry, material); // Combine geometry and material into a mesh
 scene.add(cube); // Add the cube to the scene
 
@@ -50,11 +56,11 @@ const renderer = new THREE.WebGLRenderer({
 });
 
 // Set the renderer size to match the full window dimensions
- 
+renderer.setSize(sizes.width, sizes.height);
 
 // Animation function to continuously rotate and render the cube
 function animation() {
-  requestAnimationFrame(animation); // Corrected function name
+  requestAnimationFrame(animation);
 
   // Rotate the cube slightly on each frame
   cube.rotation.x += 0.01;
