@@ -25,11 +25,11 @@ camera.position.z = 5;
 // Add the camera to the scene
 scene.add(camera);
 
-// Geometry
-const geometry = new THREE.BoxGeometry(1, 1, 1);
-const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-const cube = new THREE.Mesh(geometry, material);
-scene.add(cube);
+// Create a cube: Define geometry (shape) and material (appearance)
+const geometry = new THREE.BoxGeometry(1, 1, 1); // A cube with dimensions 1x1x1
+const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 }); // Green color
+const cube = new THREE.Mesh(geometry, material); // Combine geometry and material into a mesh
+scene.add(cube); // Add the cube to the scene
 
 // Create a WebGL renderer and link it to the selected canvas
 const renderer = new THREE.WebGLRenderer({
@@ -39,13 +39,17 @@ const renderer = new THREE.WebGLRenderer({
 // Set the renderer size to match the full window dimensions
 renderer.setSize(window.innerWidth, window.innerHeight);
 
-// Animation
+// Animation function to continuously rotate and render the cube
 function animation() {
-  requestAnimationFrame(animate);
+  requestAnimationFrame(animation); // Corrected function name
+
+  // Rotate the cube slightly on each frame
   cube.rotation.x += 0.01;
   cube.rotation.y += 0.01;
+
   // Render the scene from the perspective of the camera
   renderer.render(scene, camera);
 }
 
-animate();
+// Start the animation loop
+animation();
