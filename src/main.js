@@ -1,9 +1,7 @@
 import "./styles/style.css";
 import * as THREE from "three";
 
-console.log("Hello from Kiarash Sajadiann");
-console.log(THREE);
-
+const canvas = document.querySelector("canvas.webgl");
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
   75,
