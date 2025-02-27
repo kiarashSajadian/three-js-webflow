@@ -25,6 +25,12 @@ camera.position.z = 5;
 // Add the camera to the scene
 scene.add(camera);
 
+// Geometry
+const geometry = new THREE.BoxGeometry(1, 1, 1);
+const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+const cube = new THREE.Mesh(geometry, material);
+scene.add(cube);
+
 // Create a WebGL renderer and link it to the selected canvas
 const renderer = new THREE.WebGLRenderer({
   canvas: canvas,
