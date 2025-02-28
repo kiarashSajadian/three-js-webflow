@@ -13,7 +13,7 @@ export default defineConfig({
   build: {
     minify: true, // Minifies the output for better performance
     manifest: true,
-    // outDir: "build",
+    outDir: "build",
     rollupOptions: {
       input: "./src/main.js", // Your main entry file
       output: {
